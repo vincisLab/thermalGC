@@ -1591,6 +1591,7 @@ def plot_r_and_psth_Lick(filePath,mouse,date,ras_start,ras_end,BinSize=0.075):
 
     plt.eventplot(BigRaster,color = BigColor)
     plt.ylabel('Trials',fontdict=font)
+    plt.ylabel('Time (s)',fontdict=font)
     plt.xlim(-1*ras_start,ras_end)
     #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_1B.pdf")
     #plt.savefig(figureid,transparent=True)
