@@ -20,7 +20,6 @@ def Figure_1F(First_n_raster,First_n_psth_1,First_n_psth_2,First_n_psth_3,First_
     import matplotlib as mpl
     import matplotlib.pyplot as plt
     import seaborn as sns
-    import skimage.io as skio
 
     mpl.rcParams['font.family'] = 'Arial'
     mpl.rcParams["axes.spines.right"] = False
@@ -55,7 +54,8 @@ def Figure_1F(First_n_raster,First_n_psth_1,First_n_psth_2,First_n_psth_3,First_
             ax.axes.yaxis.set_ticks([])
             ax.axes.xaxis.set_ticks([])
             ax.set_ylabel('Trials')
-            #ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
+            ax.text(-0.1, 1.1, 'D', transform=ax.transAxes,size=12, weight='bold')
+            ax.set_title('Example Neuron#1')
 
         if label == 'C1':
             ax.plot(First_n_psth_1.mean()*150,color = colors[5],label = 'W')
@@ -75,6 +75,7 @@ def Figure_1F(First_n_raster,First_n_psth_1,First_n_psth_2,First_n_psth_3,First_
             ax.spines['bottom'].set_visible(False)
             ax.axes.yaxis.set_ticks([])
             ax.axes.xaxis.set_ticks([])
+            ax.set_title('Example Neuron#2')
             #ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
         if label == 'D1':
             ax.plot(Second_n_psth_1.mean()*150,color = colors[5],label = 'W')
@@ -96,7 +97,6 @@ def Figure_1G(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_t
     import matplotlib as mpl
     import matplotlib.pyplot as plt
     import seaborn as sns
-    import skimage.io as skio
 
     mpl.rcParams['font.family'] = 'Arial'
     mpl.rcParams["axes.spines.right"] = False
@@ -130,6 +130,7 @@ def Figure_1G(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_t
            ax.axes.yaxis.set_ticks([])
            ax.axes.xaxis.set_ticks([])
            ax.set_ylabel('Trials')
+           ax.set_title('Example Neuron#3')
            ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
        if label == 'E1':
            #ax.plot(Third_n_psth_1.mean()*1000,color = colours[1],label = 'W-14')
@@ -149,7 +150,8 @@ def Figure_1G(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_t
            ax.spines['bottom'].set_visible(False)
            ax.axes.yaxis.set_ticks([])
            ax.axes.xaxis.set_ticks([])
-           ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
+           #ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
+           ax.set_title('Example Neuron#4')           
        if label == 'F1':
            ax.plot(Fourth_n_psth_1.mean()*150,color = colours[1],label = 'W-14')
            ax.plot(Fourth_n_psth_2.mean()*150,color = colours[3],label = 'W-25')
@@ -395,7 +397,7 @@ def Figure_3(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_tr
 #            ax.text(1-0.1, one+2, str(len(Resp_sel_final[Resp_sel_final['tuning_1']==1]))+'/'+str(len(Resp_sel_final))),ax.text(2, 1, '2'),ax.text(3, 1, '3')
 #            ax.text(2-0.1, two+2, str(len(Resp_sel_final[Resp_sel_final['tuning_1']==2]))+'/'+str(len(Resp_sel_final))),ax.text(2, 1, '2'),ax.text(3, 1, '3')
 #            ax.text(3-0.1, three+2, str(len(Resp_sel_final[Resp_sel_final['tuning_1']==3]))+'/'+str(len(Resp_sel_final))),ax.text(2, 1, '2'),ax.text(3, 1, '3')
-            ax.set_title('Tuning of temp dependent neurons')
+            ax.set_title('Tuning of temp.-selective neurons')
         if label == 'D1':
             ax.bar([1,2,3],[one_d2,two_d2,three_d2],color = [colours[1],colours[3],colours[5]])
             ax.set_xlabel('Stimulus I.D.')
@@ -422,7 +424,7 @@ def Figure_3(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_tr
             xi = ['14C','25C','36']
             ax.set_xticks(x)
             ax.set_xticklabels(xi,minor=False)
-            ax.set_title('Tuning of temp dependent neurons')
+            ax.set_title('Tuning of temp.-selective neurons')
         if label == 'F':
             y1 = len(df_test_1)+len(df_test_11)+len(df_test_111)
             y2 = len(df_test_2)+len(df_test_22)+len(df_test_222)
@@ -438,10 +440,10 @@ def Figure_3(Third_n_raster,Third_n_psth_1,Third_n_psth_2,Third_n_psth_3, min_tr
             ax.spines.bottom.set_visible(False)
             ax.xaxis.set_ticks([])
 
-    figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_3.pdf")
-    plt.savefig(figureid,transparent=True)
+    #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_3.pdf")
+    #plt.savefig(figureid,transparent=True)
     
-def Figure_4(file1,file2):
+def Figure_4(filePath):
     """
 
     """ 
@@ -469,9 +471,8 @@ def Figure_4(file1,file2):
     fig, axs = plt.subplot_mosaic([['A','B']],
                               constrained_layout=True,figsize=(6,3))
     colors = sns.color_palette("Paired")
-    mean_SVM_df         = pd.read_csv(file1)
-    #splits_SVM_df       = pd.read_csv('/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Data_for_analysis/slidwin_decoding_split.csv')
-    mean_SVM_df_shuffle = pd.read_csv(file2)
+    mean_SVM_df         = pd.read_csv(filePath/'Data/slidwin_decoding.csv')
+    mean_SVM_df_shuffle = pd.read_csv(filePath/'Data/shuffled_slidwin_decoding.csv')
     time = np.round(np.arange(0,80,1),decimals=1)
     for label, ax in axs.items():
 #       if label == 'B':
@@ -510,11 +511,11 @@ def Figure_4(file1,file2):
             ax.set_ylabel('Accuracy')
             ax.set_ylim(0.2,0.72)
             ax.text(-0.2, 1.15, label, transform=ax.transAxes,size=12, weight='bold')       
-            ax.set_title('Population decoding timecourse \n 0.02ms sliding window')
+            ax.set_title('Population decoding timecourse')
 
         if label == 'B':
-          evoked = np.load('/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Data_for_analysis/decoding_pop_evoked.npy', mmap_mode=None)
-          evoked_shuffle = np.load('/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Data_for_analysis/decoding_pop_evoked_shuffle.npy', mmap_mode=None)
+          evoked = np.load(filePath/'Data/decoding_pop_evoked.npy', mmap_mode=None)
+          evoked_shuffle = np.load(filePath/'Data/decoding_pop_evoked_shuffle.npy', mmap_mode=None)
           ax.plot(evoked,color = colors[9], marker="o")
           ax.plot(evoked_shuffle, color = colors[11],marker="o")
           ax.set_xlabel('Population size (neurons)')
@@ -523,8 +524,8 @@ def Figure_4(file1,file2):
           ax.set_title('Population decoding 1.5 s after stimulus')
           ax.text(-0.2, 1.15, label, transform=ax.transAxes,size=12, weight='bold') 
           
-    figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_4.pdf")
-    plt.savefig(figureid,transparent=True)
+    #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_4.pdf")
+    #plt.savefig(figureid,transparent=True)
     
 def Figure_5(Fifth_n_raster,Fifth_n_psth_1,Fifth_n_psth_2,Fifth_n_psth_3, min_trialN_5,
              Sixth_n_raster,Sixth_n_psth_1,Sixth_n_psth_2,Sixth_n_psth_3, min_trialN_6,
@@ -688,12 +689,11 @@ def Figure_5(Fifth_n_raster,Fifth_n_psth_1,Fifth_n_psth_2,Fifth_n_psth_3, min_tr
             ax.set_title('Decoding Perf. over \n AP position')
             ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
 
-    figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_5.pdf")
-    plt.savefig(figureid,transparent=True)
-    return (r2_Sc)
+    #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_5.pdf")
+    #plt.savefig(figureid,transparent=True)
+    #return (r2_Sc)
 
 def Figure_6(Fifth_n_raster, Fifth_n_psth_1, Fifth_n_psth_2, Fifth_n_psth_3, Fifth_n_psth_4, min_trialN_5,
-             Sixth_n_raster, Sixth_n_psth_1, Sixth_n_psth_2, Sixth_n_psth_3, Sixth_n_psth_4, min_trialN_6,
              MWS,
              CW,CS,HW,HS):
     
@@ -733,9 +733,9 @@ def Figure_6(Fifth_n_raster, Fifth_n_psth_1, Fifth_n_psth_2, Fifth_n_psth_3, Fif
     inner_1 = [['A',inner_3]]
     inner_2 = [['C','C1','D']] 
     
-    colours = sns.color_palette('rocket')
-    colours_1 = sns.color_palette('mako')
-    colours_2 = sns.color_palette("icefire")
+    # colours = sns.color_palette('rocket')
+    # colours_1 = sns.color_palette('mako')
+    # colours_2 = sns.color_palette("icefire")
     
     fig, axs = plt.subplot_mosaic([[inner_1],[inner_2]],
                               constrained_layout=True,figsize=(5,5))
@@ -765,25 +765,25 @@ def Figure_6(Fifth_n_raster, Fifth_n_psth_1, Fifth_n_psth_2, Fifth_n_psth_3, Fif
             ax.set_xlabel('Time (ms)')
             ax.set_ylabel('Firing rate (Hz)')
             ax.legend(prop={'size': 4})
-        if label == 'CC':
-            ax.eventplot(Sixth_n_raster,color=['blue']*min_trialN_6 + ['red']*min_trialN_6 + ['navy']*min_trialN_6 + ['firebrick']*min_trialN_6)
-            ax.set_xlim(-500, 2000)
-            ax.spines['left'].set_visible(False)   
-            ax.spines['bottom'].set_visible(False)
-            ax.axes.yaxis.set_ticks([])
-            ax.axes.xaxis.set_ticks([])
-            #ax.set_ylabel('Trials')
-            #ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
-        if label == 'CC1':
-            ax.plot(Sixth_n_psth_1.mean()*150,color = 'blue',label = 'Saliva-14C˚')
-            ax.plot(Sixth_n_psth_2.mean()*150,color = 'red',label = 'Saliva-36C˚')
-            ax.plot(Sixth_n_psth_3.mean()*150,color = 'navy',label = 'Water-14C˚')
-            ax.plot(Sixth_n_psth_4.mean()*150,color = 'firebrick',label = 'Water-36C˚')
-            ax.set_xlim(-500, 1500)
-            ax.set_ylim(0, 30)
-            ax.set_xlabel('Time (ms)')
-            #ax.set_ylabel('Firing rate (Hz)')
-            #ax.legend(prop={'size': 4})
+        # if label == 'CC':
+        #     ax.eventplot(Sixth_n_raster,color=['blue']*min_trialN_6 + ['red']*min_trialN_6 + ['navy']*min_trialN_6 + ['firebrick']*min_trialN_6)
+        #     ax.set_xlim(-500, 2000)
+        #     ax.spines['left'].set_visible(False)   
+        #     ax.spines['bottom'].set_visible(False)
+        #     ax.axes.yaxis.set_ticks([])
+        #     ax.axes.xaxis.set_ticks([])
+        #     #ax.set_ylabel('Trials')
+        #     #ax.text(-0.1, 1.1, label, transform=ax.transAxes,size=12, weight='bold')
+        # if label == 'CC1':
+        #     ax.plot(Sixth_n_psth_1.mean()*150,color = 'blue',label = 'Saliva-14C˚')
+        #     ax.plot(Sixth_n_psth_2.mean()*150,color = 'red',label = 'Saliva-36C˚')
+        #     ax.plot(Sixth_n_psth_3.mean()*150,color = 'navy',label = 'Water-14C˚')
+        #     ax.plot(Sixth_n_psth_4.mean()*150,color = 'firebrick',label = 'Water-36C˚')
+        #     ax.set_xlim(-500, 1500)
+        #     ax.set_ylim(0, 30)
+        #     ax.set_xlabel('Time (ms)')
+        #     #ax.set_ylabel('Firing rate (Hz)')
+        #     #ax.legend(prop={'size': 4})
         if label == 'D':
             x = 100*CS[:,6:11].mean(axis=1)
             y = 100*CW[:,6:11].mean(axis=1)
@@ -861,9 +861,9 @@ def Figure_6(Fifth_n_raster, Fifth_n_psth_1, Fifth_n_psth_2, Fifth_n_psth_3, Fif
             ax.set_ylim(0.2,0.8)
             ax.set_xlabel('Time (s)')
 
-    figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_6.pdf")
-    plt.savefig(figureid,transparent=True) 
-    return(r2_Sc_c,r2_Sc_h)  
+    #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_6.pdf")
+    #plt.savefig(figureid,transparent=True) 
+    #return(r2_Sc_c,r2_Sc_h)  
 
 def Figure_7(Fifth_n_raster,Fifth_n_psth_1,Fifth_n_psth_2,Fifth_n_psth_3, Fifth_n_psth_4, min_trialN_5,
              Sixth_n_raster, Sixth_n_psth_1, Sixth_n_psth_2,min_trialN_6,
@@ -1221,7 +1221,7 @@ def Figure_8(MTT):
             
 def snippet_fig2_1(df_allN,df_allN_smooth,neuron=0, class_labels = ['Water','NaCl','CitricAcid','Quinine','Sucrose']):
     
-    from Script import get_spike_train_all,get_min_trial_numb
+    from Script.Script import get_spike_train_all,get_min_trial_numb
     import pandas as pd
     
     curr_n_ras = get_spike_train_all(df_allN, neuron)
@@ -1281,7 +1281,7 @@ def snippet_fig2_1(df_allN,df_allN_smooth,neuron=0, class_labels = ['Water','NaC
 
 def snippet_fig2_2(df_allN,df_allN_smooth,neuron=0):
     
-    from Script import get_spike_train_all,get_min_trial_numb
+    from Script.Script import get_spike_train_all,get_min_trial_numb
     import pandas as pd
     
     curr_n_ras = get_spike_train_all(df_allN, neuron)
@@ -1335,7 +1335,7 @@ def snippet_fig2_2(df_allN,df_allN_smooth,neuron=0):
 
 def snippet_fig2_3(df_allN,df_allN_smooth,neuron=0, class_labels = ['NaCl','CitricAcid','Quinine','Sucrose']):
     
-    from Script import get_spike_train_all,get_min_trial_numb
+    from Script.Script import get_spike_train_all,get_min_trial_numb
     import pandas as pd
     
     curr_n_ras = get_spike_train_all(df_allN, neuron)
@@ -1392,7 +1392,7 @@ def snippet_fig2_3(df_allN,df_allN_smooth,neuron=0, class_labels = ['NaCl','Citr
 
 def snippet_fig2_4(df_allN,df_allN_smooth,neuron=0):
     
-    from Script import get_spike_train_all,get_min_trial_numb
+    from Script.Script import get_spike_train_all,get_min_trial_numb
     import pandas as pd
     
     curr_n_ras = get_spike_train_all(df_allN, neuron)
@@ -1591,7 +1591,7 @@ def plot_r_and_psth_Lick(filePath,mouse,date,ras_start,ras_end,BinSize=0.075):
 
     plt.eventplot(BigRaster,color = BigColor)
     plt.ylabel('Trials',fontdict=font)
-    plt.ylabel('Time (s)',fontdict=font)
+    plt.xlabel('Time (s)',fontdict=font)
     plt.xlim(-1*ras_start,ras_end)
     #figureid = str("/Users/robertovincis/VincisLab_Python/Bouaichi_and_Vincis2022/Plos Biology/Bouaichi_and_Vincis_jn_1B.pdf")
     #plt.savefig(figureid,transparent=True)

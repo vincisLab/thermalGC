@@ -17,7 +17,7 @@ Created on Thu Dec 22 12:39:33 2022
 def extr_responsivness_wilcoxon_and_tuning(file):
 
     #from VincisLab_Python.EnsembleDecoding.decoding_tools import bin_all_spike_trains
-    from Script import bin_all_spike_trains
+    from Script.Script import bin_all_spike_trains
     import numpy as np
     import pickle
     import pandas as pd
